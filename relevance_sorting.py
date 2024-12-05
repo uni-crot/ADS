@@ -1,6 +1,8 @@
-def getSortedRelevanceIndices(R: list, old_indices: list = range(len(R))) -> list:
+def getSortedRelevanceIndices(R: list, old_indices: list = None) -> list:
     """Returns indices of sorted relevances (descending)"""
-    return sorted(old_indices, key=lambda i: R[i], reverse=True)
+
+    indices = old_indices if old_indices else range(len(R))
+    return sorted(indices, key=lambda i: R[i], reverse=True)
 
 
 # Main program
@@ -23,11 +25,10 @@ number_of_requests = int(input())
 for _ in range(number_of_requests):
     request = [int(i) for i in input().split()]
 
-    if request[0] == 1: # Query type 1: Output top-k most relevant objects, t O(q⋅(d+klogk))
+    if request[0] == 1:  # Query type 1: Output top-k most relevant objects
         print(*[i + 1 for i in sorted_relevances_indices[: request[1]]])
 
-    elif request[0] == 2: # Query type 2: Change value in matrix F and update relevance, t O(q⋅n)
-
+    elif request[0] == 2:  # Query type 2: Change value in matrix F and update relevance
         # Read and convert to 0-based index
         i, j, v = request[1] - 1, request[2] - 1, request[3]
 
