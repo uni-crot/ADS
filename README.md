@@ -7,3 +7,5 @@ This repository contains homework assignments for the "Algorithms and Data Struc
 *Task 3*: invert binary tree  
 *Task 4*: balance red-black tree  
 *Task 5*: key-value in red-black tree structure  
+*Task 6*: hotel  
+*Task 7*: bellman_ford  
